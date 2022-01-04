@@ -84,13 +84,13 @@ function Basket({ items, setItems }) {
                             {computeSubTotal(x)}
                         </Table.TextCell>
                         <Table.TextCell isNumber>
-                            <Button onClick={()=>{ deleteItem(x)}} >Remove</Button>
+                            <Button color={"red"} onClick={()=>{ deleteItem(x)}} >Remove</Button>
                         </Table.TextCell>
                     </Table.Row>
                 ))}
                 <Table.Row>
                     <Table.TextCell>
-                        <Button onClick={()=>{insertItem()}} >Add row</Button>
+                        <Button color={"green"} onClick={()=>{insertItem()}} >Add row</Button>
                     </Table.TextCell>
                     <Table.TextCell></Table.TextCell>
                     <Table.TextCell></Table.TextCell>
