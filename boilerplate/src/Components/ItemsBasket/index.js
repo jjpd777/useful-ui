@@ -16,8 +16,6 @@ function ItemsBasket() {
         return total;
     };
     
-
-
     return (
         <>
             <Basket items={items} setItems={setItems} />
@@ -26,7 +24,6 @@ function ItemsBasket() {
                 <Badge color={"blue"}>Items Summary</Badge>
                 </div>
                 <Paragraph margin={40}>The total in your basket is ${sumBasket()}</Paragraph>
-
             </SideSheet>
             <div className="content-chunk">
             <Button onClick={() => setIsShown(true)}>See summary</Button>

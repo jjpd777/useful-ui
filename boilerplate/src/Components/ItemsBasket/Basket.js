@@ -20,41 +20,41 @@ function Basket({ items, setItems }) {
     }, [items]);
 
     const insertItem = ()=>{
-        setItems(prevState => [...prevState, initialState() ])
+        setItems(prevState => [...prevState, initialState() ]);
     };
 
     const deleteItem = (item)=>{
         setItems(prevState => (
             prevState.filter(prev=>
-                prev.uid !== item.uid
-                )))
-    }
+                prev.uid !== item.uid)
+        ));
+    };
 
     const updateNameInput = (item, value) => {
         setItems(prevState => (
             prevState.map(prev =>
                 prev.uid === item.uid ? { ...prev, itemName: value } : prev)
-        ))
+        ));
     };
 
     const updateQuantityInput = (item, value) => {
         setItems(prevState => (
             prevState.map(prev =>
                 prev.uid === item.uid ? { ...prev, itemQuantity: value } : prev)
-        ))
+        ));
     };
 
     const updatePriceInput = (item, value) => {
-
         setItems(prevState => (
             prevState.map(prev =>
                 prev.uid === item.uid ? { ...prev, itemUnitPrice: value } : prev)
-        ))
+        ));
     };
 
     const computeSubTotal = (item) => {
         return moneyFormatter.format(item.itemQuantity * item.itemUnitPrice);
     };
+
     console.log(items)
 
 
