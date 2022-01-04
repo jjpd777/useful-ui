@@ -1,5 +1,14 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 80%;
+  padding: 50px;
+}
+
+.content-chunk{
+  padding: 100px;
 }
 
 .App-logo {
