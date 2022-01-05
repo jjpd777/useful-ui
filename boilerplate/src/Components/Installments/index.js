@@ -17,7 +17,7 @@ function Installments() {
             prevState.map(prev =>
                 prev.uid === item.uid ? { ...prev, dueDate: ds } : prev)
         ));
-    }
+    };
 
     const datePickerUI = (item) => {
         return (
