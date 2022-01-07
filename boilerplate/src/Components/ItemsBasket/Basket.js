@@ -2,6 +2,9 @@
 import React, { useState, useEffect } from "react";
 import { Table, TextInput, Button} from 'evergreen-ui';
 import { moneyFormatter } from "../../Utils/MoneyFormat";
+import { CloseCircleOutlined, PlusOutlined } from  '@ant-design/icons';
+import CurrencyInput from 'react-currency-input-field';
+
 
 
 function Basket({ items, setItems }) {
@@ -55,7 +58,8 @@ function Basket({ items, setItems }) {
         return moneyFormatter.format(item.itemQuantity * item.itemUnitPrice);
     };
 
-    console.log(items)
+    console.log(items);
+    
 
 
     return (
@@ -84,13 +88,13 @@ function Basket({ items, setItems }) {
                             {computeSubTotal(x)}
                         </Table.TextCell>
                         <Table.TextCell isNumber>
-                            <Button color={"red"} onClick={()=>{ deleteItem(x)}} >Remove</Button>
+                            <CloseCircleOutlined style={{color:"red"}} onClick={()=>{ deleteItem(x)}} />
                         </Table.TextCell>
                     </Table.Row>
                 ))}
                 <Table.Row>
                     <Table.TextCell>
-                        <Button color={"green"} onClick={()=>{insertItem()}} >Add row</Button>
+                        <Button color={"green"} onClick={()=>{insertItem()}} > <PlusOutlined/>Add row</Button>
                     </Table.TextCell>
                     <Table.TextCell></Table.TextCell>
                     <Table.TextCell></Table.TextCell>

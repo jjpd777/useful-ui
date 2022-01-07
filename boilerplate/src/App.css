@@ -41,3 +41,8 @@
 .date-picker{
   margin: 0 auto;
 }
+
+.fields-description{
+  display: flex;
+  flex-direction: row;
+}

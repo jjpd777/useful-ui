@@ -1,7 +1,7 @@
 import './App.css';
 import React, {useState, useEffect} from 'react';
 import ItemsBasket from "./Components/ItemsBasket/index";
-import Installments from "./Components/Installments/index";
+import CreateInvoice from "./Components/CreateInvoice/index";
 import InvoicesTable from "./Components/InvoicesTable/index";
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import 'antd/dist/antd.css';
@@ -40,8 +40,8 @@ function App() {
               </Link>
             </Menu.Item>
             <Menu.Item key="2" icon={<DesktopOutlined />}>
-            <Link to="/installments">
-                Installments
+            <Link to="/invoice">
+                Create Invoice
               </Link>
             </Menu.Item>
             <Menu.Item key="9" icon={<FileOutlined />}>
@@ -50,7 +50,7 @@ function App() {
           </Menu>
         </Sider>
         <Layout className="site-layout">
-          <Header className="site-layout-background" style={{ padding: 24, size:50 }}> </Header>
+          <Header className="site-layout-background" style={{ padding: 24}}> </Header>
           <Content style={{ margin: '0 16px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>
               <Breadcrumb.Item></Breadcrumb.Item>
@@ -58,7 +58,7 @@ function App() {
             <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
               <Routes>
                 <Route exact path="/transactions" element={<InvoicesTable />} />
-                <Route exact path="/installments" element={<Installments />} />
+                <Route exact path="/invoice" element={<CreateInvoice />} />
               </Routes>
             </div>
           </Content>
