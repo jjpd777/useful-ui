@@ -51,14 +51,21 @@
   display: flex;
   flex-direction: row;
   margin-bottom:600px;
+  padding: 100px;
+  background-color: aliceblue;
 }
 
 .delivered-summary{
   width: 50%;
-  background-color: blue;
+  padding: 10px;
 }
 
 .payments-display{
   width: 50%;
-  background-color: red;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.payments-card{
+  text-align: left;
 }
