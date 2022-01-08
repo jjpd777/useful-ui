@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import ItemsBasket from "./Components/ItemsBasket/index";
 import CreateInvoice from "./Components/CreateInvoice/index";
 import InvoicesTable from "./Components/InvoicesTable/index";
+import DeliverInvoice from "./Components/DeliverInvoice/index";
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import { Layout, Menu, Breadcrumb } from 'antd';
@@ -30,6 +31,9 @@ function App() {
   return (
     <div className="App">
     <Router>
+      <Routes>
+        <Route exact path="/delivered" element={<DeliverInvoice/>} />
+      </Routes>
       <Layout style={{ minHeight: '100vh' }}>
         <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
           <div className="logo" />

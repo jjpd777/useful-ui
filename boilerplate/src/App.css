@@ -46,3 +46,19 @@
   display: flex;
   flex-direction: row;
 }
+
+.delivered-invoice-container{
+  display: flex;
+  flex-direction: row;
+  margin-bottom:600px;
+}
+
+.delivered-summary{
+  width: 50%;
+  background-color: blue;
+}
+
+.payments-display{
+  width: 50%;
+  background-color: red;
+}
