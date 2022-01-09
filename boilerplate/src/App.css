@@ -58,6 +58,7 @@
 .delivered-summary{
   width: 50%;
   padding: 10px;
+  text-align: left;
 }
 
 .payments-display{
@@ -68,4 +69,24 @@
 
 .payments-card{
   text-align: left;
+}
+
+.payments-options-btn{
+  width: 200px
+}
+
+.payments-credit-card{
+  display: flex;
+  flex-direction: row;
+  max-width: 69%;
+}
+
+.cc-number{
+  max-width:69%;
+  color: blue;
+  margin-right:30px;
+}
+
+.cc-secondary{
+  margin-right: 20px;
 }
