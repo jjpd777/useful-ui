@@ -7,8 +7,14 @@ import { sampleDetails } from "./DataQuery";
 import { moneyFormatter } from "../../Utils/MoneyFormat";
 import * as Icon from 'react-bootstrap-icons';
 import {
-    BankOutlined, CreditCardOutlined, WalletOutlined, LockOutlined
+    BankOutlined, CreditCardOutlined, WalletOutlined, LockOutlined, CheckCircleFilled
 } from '@ant-design/icons';
+
+import Visa from "../../Utils/visa-logo.png";
+import MasterCard from "../../Utils/mastercard-logo.png";
+import Amex from "../../Utils/amex-logo.png";
+
+
 
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -17,10 +23,11 @@ const { Header, Content, Footer, Sider } = Layout;
 function DeliverInvoice() {
 
     const paymentOpts = [
-        { val: "Bank Transfer" },
         { val: "Card Payment" },
+        { val: "Bank Transfer" },
         { val: "Check Payment" }
     ];
+    
 
     const [value, setValue] = useState(paymentOpts[0]);
 
@@ -72,8 +79,8 @@ function DeliverInvoice() {
             </div>
             <div className="payments-display">
                 <Card className="payments-card" title="How would you like to pay?" >
-                    <div>
-                        <Space size={10}>
+                    <div className="bank-card-check">
+                        <Space size={10} align="end">
                             {paymentOpts.map(x =>
                                 <Button className="payments-options-btn"
                                     type={x.val === value.val ? "primary" : ""}
@@ -84,12 +91,14 @@ function DeliverInvoice() {
                             )}
                         </Space>
                     </div>
+                    
                     <Divider />
                     {value.val === "Card Payment" &&
                         <>
                             <TextInputField
                                 className="cc-number"
                                 label="Card number"
+                                hint = {"secured by Rapyd"}
                                 placeholder="Card number"
                                 inputHeight="40px"
                                 required={true}
@@ -106,15 +115,35 @@ function DeliverInvoice() {
                                 <div>
                                     <TextInputField
                                         className="cc-secondary"
-                                        label="CCV"
+                                        label="CVC"
                                         required
-                                        placeholder="CCV code"
+                                        placeholder="CVC security code"
                                         inputHeight="40px"
                                         inputWidth="200px"
                                     />
                                 </div>
                             </div>
-                            <h3>All transactions are secured <Icon.ShieldLock /></h3>
+                            <div>
+                                <br></br>
+                                <h3>All transactions are secured and encrypted <Icon.ShieldLock /></h3>
+                                <div className="box-logos">
+                                    <img className="card-logos" src={Visa}></img>
+                                    <img className="card-logos" src={MasterCard}></img>
+                                    <img className="card-logos" src={Amex}></img>
+                                </div>
+                            </div>
+                            <div className="pay-btn-box">
+                            <Space>
+                                <Button className="pay-btn"
+                                    size="large"
+                                    style={{color:"green",}}
+                                    icon={<CheckCircleFilled/>}
+                                >
+                                   {"  Pay $500.00"} 
+                                </Button>
+                                </Space>
+                        </div>
+
                         </>}
                     {value.val === "Bank Transfer" &&
                         <>

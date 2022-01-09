@@ -67,12 +67,20 @@
   margin: 0 auto;
 }
 
+.bank-card-check{
+  align-self: auto;
+  align-items: center;
+  justify-content: center;
+
+}
+
 .payments-card{
   text-align: left;
 }
 
 .payments-options-btn{
-  width: 200px
+  width: 200px;
+  align-content: center;
 }
 
 .payments-credit-card{
@@ -89,4 +97,29 @@
 
 .cc-secondary{
   margin-right: 20px;
+}
+
+.box-logos{
+  margin:10px;
+}
+
+.card-logos{
+  max-width: 7%;
+  margin-right:10px;
+}
+
+.pay-btn-box{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: red;
+
+}
+
+.pay-btn{
+  margin:20px;
+  min-height:60px;
+
+
 }
