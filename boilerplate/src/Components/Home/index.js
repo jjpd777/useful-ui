@@ -26,8 +26,6 @@ function Home() {
 
 
   return (
-    <div className="App">
-        <Router>
       <Layout style={{ minHeight: '100vh' }}>
         <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
           <div className="logo" />
@@ -43,7 +41,9 @@ function Home() {
               </Link>
             </Menu.Item>
             <Menu.Item key="9" icon={<FileOutlined />}>
-              Other
+            <Link to="/delivered">
+                Delivered Invoice
+              </Link>
             </Menu.Item>
           </Menu>
         </Sider>
@@ -54,18 +54,15 @@ function Home() {
               <Breadcrumb.Item></Breadcrumb.Item>
             </Breadcrumb>
             <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-              <Routes>
-                <Route exact path="/transactions" element={<InvoicesTable />} />
-                <Route exact path="/invoice" element={<CreateInvoice />} />
-              </Routes>
+                <Routes>   
+                    <Route path="transactions" element={<InvoicesTable />} />
+                    <Route path="invoice" element={<CreateInvoice />} />
+                </Routes>
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>Saldada ©2022 Created by Latinos</Footer>
         </Layout>
       </Layout>
-      </Router>
-    </div>
-
   );
 }
 
