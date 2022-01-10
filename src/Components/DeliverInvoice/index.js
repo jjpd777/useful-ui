@@ -13,6 +13,7 @@ import {
 import Visa from "../../Utils/visa-logo.png";
 import MasterCard from "../../Utils/mastercard-logo.png";
 import Amex from "../../Utils/amex-logo.png";
+import SaldadaColor from "../../Utils/saldada-color.png";
 
 
 
@@ -165,7 +166,7 @@ function DeliverInvoice() {
                             <h4>San Francisco, CA 94114</h4>
                             <h3><b>Make the check out to "Saldada Payments Inc". On check memo please add the following id: invoice-13375.</b></h3>
                         </>}
-                    <Footer style={{ textAlign: 'center' }}>powered by Saldada</Footer>
+                    <Footer style={{ textAlign: 'center' }}>powered by           <img src={SaldadaColor} style={{width: '13%'}}></img></Footer>
                 </Card>
             </div>
         </div>
