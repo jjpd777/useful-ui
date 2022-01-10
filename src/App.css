@@ -64,13 +64,11 @@
   width: 50%;
   padding: 10px;
   margin: 0 auto;
+
 }
 
 .bank-card-check{
-  align-self: auto;
-  align-items: center;
-  justify-content: center;
-
+  margin: 0 auto;
 }
 
 .payments-card{
@@ -78,8 +76,8 @@
 }
 
 .payments-options-btn{
-  width: 200px;
   align-content: center;
+
 }
 
 .payments-credit-card{
