@@ -3,6 +3,11 @@ import React, { useState, useEffect } from "react";
 import { Table, Badge, SideSheet,Paragraph} from 'evergreen-ui';
 import { moneyFormatter } from "../../Utils/MoneyFormat";
 import {sampleInvoices} from "./DataQuery";
+import { Statistic, Row, Col, Button } from 'antd';
+import {
+    DollarCircleFilled
+  } from '@ant-design/icons';
+import 'antd/dist/antd.css';
 
 
 
@@ -63,6 +68,7 @@ function InvoicesTable({ items, setItems }) {
                 <Paragraph margin={40}>The total in your basket is ${currentRow.total}</Paragraph>
                 <Paragraph margin={40}>Buyer: {currentRow.buyer}</Paragraph>
                 <Paragraph margin={40}>Vendor: {currentRow.vendor}</Paragraph>
+                <Statistic prefix={<FileOutlined/>} title= {"Total Invoices"} value={75} />
             </SideSheet>
         </>
     )
