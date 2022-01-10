@@ -5,7 +5,7 @@ import { moneyFormatter } from "../../Utils/MoneyFormat";
 import {sampleInvoices} from "./DataQuery";
 import { Statistic, Row, Col, Button } from 'antd';
 import {
-    DollarCircleFilled
+    FileOutlined
   } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 
