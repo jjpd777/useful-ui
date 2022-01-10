@@ -1,12 +1,14 @@
 
 import React, { useState, useEffect } from "react";
-import { Table, Badge} from 'evergreen-ui';
+import { Table, Badge, SideSheet,Paragraph} from 'evergreen-ui';
 import { moneyFormatter } from "../../Utils/MoneyFormat";
 import {sampleInvoices} from "./DataQuery";
 
 
 
 function InvoicesTable({ items, setItems }) {
+    const [isShown, setIsShown] = useState(false);
+    const [currentRow, setCurrent] = useState({});
 
     const styleStatus = (input)=>{
         const styles = [
@@ -29,7 +31,10 @@ function InvoicesTable({ items, setItems }) {
             </Table.Head>
             <Table.Body >
                 {sampleInvoices.map((x) => (
-                    <Table.Row key={x.uid} >
+                    <Table.Row onClick={()=>{
+                        setIsShown(true);
+                        setCurrent(x)
+                    }} key={x.uid} >
                         <Table.TextCell>
                             <b>{moneyFormatter.format(x.total)}</b>
                         </Table.TextCell>
@@ -51,6 +56,14 @@ function InvoicesTable({ items, setItems }) {
                 ))}
             </Table.Body>
         </Table>
+        <SideSheet isShown={isShown} onCloseComplete={() => setIsShown(false)}>
+                <div className="content-chunk">
+                <Badge color={"blue"}>Items Summary</Badge>
+                </div>
+                <Paragraph margin={40}>The total in your basket is ${currentRow.total}</Paragraph>
+                <Paragraph margin={40}>Buyer: {currentRow.buyer}</Paragraph>
+                <Paragraph margin={40}>Vendor: {currentRow.vendor}</Paragraph>
+            </SideSheet>
         </>
     )
 };
