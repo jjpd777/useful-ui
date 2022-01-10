@@ -117,6 +117,12 @@
 .pay-btn{
   margin:20px;
   min-height:60px;
+}
 
+.summary-btns{
+  margin-top:20px;
 
+}
+.summary-b{
+  margin-right:10px;
 }
