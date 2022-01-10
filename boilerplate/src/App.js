@@ -31,17 +31,14 @@ function App() {
 
   return (
     <div className="App">
-    <Router>
       <Routes>
-        <Route exact path="/delivered" element={<DeliverInvoice/>} />
         <Route exact path="/" element ={<Home/>}>
-          <Route exact path="/invoice" element={<CreateInvoice />} />
+          <Route path="/invoice" element={<CreateInvoice />} />
           <Route path="/transactions" element={<InvoicesTable />} />
         </Route>
+        <Route exact path="/delivered" element={<DeliverInvoice/>} />
       </Routes>
-      </Router>
     </div>
-
   );
 }
 
