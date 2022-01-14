@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
+import "../StripeCheckout/index";
+import {Elements} from '@stripe/react-stripe-js';
+import {loadStripe} from '@stripe/stripe-js';
 import 'antd/dist/antd.css';
-import { Layout, Card, Divider, Space, Button } from 'antd';
+import { Layout, Card, Divider, Space, Button, Tag } from 'antd';
 import { Table, TextInputField } from 'evergreen-ui';
 import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
 import { sampleDetails } from "./DataQuery";
@@ -16,6 +19,7 @@ import Visa from "../../Utils/visa-logo.png";
 import MasterCard from "../../Utils/mastercard-logo.png";
 import Amex from "../../Utils/amex-logo.png";
 import SaldadaColor from "../../Utils/saldada-color.png";
+import StripeCheckout from "../StripeCheckout/index";
 
 
 
@@ -47,10 +51,11 @@ function DeliverInvoice() {
                     <div>
                         <h2>Created by Castillo INC</h2>
                         <h3><b>Invoice details for invoice #757</b></h3>
-                        <h3>Billed to: GUATESPICES INC</h3>
-                        <h3>Billed on: December 21 2021</h3>
-                        <h3>Due on: January 19 2022</h3>
+                        <h3><Tag color="cyan">Billed to:</Tag> GUATESPICES INC</h3>
+                        <h3><Tag color="cyan">Billed on:</Tag> December 21 2021</h3>
+                        <h3><Tag color="yellow">Due on:</Tag> January 19 2022</h3>
                     </div>
+                    <br></br>
                     <Table>
                         <Table.Head>
                             {/* <Table.SearchHeaderCell /> */}
@@ -62,10 +67,10 @@ function DeliverInvoice() {
                         <Table.Body >
                             {sampleDetails.basket.map((x) => (
                                 <Table.Row key={x.uid} >
-                                    <Table.TextCell>
+                                    <Table.TextCell textProps={{ minWidth: 1000 }}>
                                         <b>{x.item}</b>
                                     </Table.TextCell>
-                                    <Table.TextCell >
+                                    <Table.TextCell isNumber >
                                         {x.units}
                                     </Table.TextCell>
                                     <Table.TextCell isNumber>
@@ -76,6 +81,18 @@ function DeliverInvoice() {
                                     </Table.TextCell>
                                 </Table.Row>
                             ))}
+                            <Table.Row key={"summary"}>
+                                <Table.TextCell>
+                                </Table.TextCell>
+                                <Table.TextCell>
+                                </Table.TextCell>
+                                <Table.TextCell>
+                                <b> Total</b>
+                                </Table.TextCell>
+                                <Table.TextCell isNumber>
+                                    <b> $25,983.75</b>
+                                </Table.TextCell>
+                            </Table.Row>
                         </Table.Body>
                     </Table>
                 </Content>
@@ -96,7 +113,38 @@ function DeliverInvoice() {
                     </div>
                     
                     <Divider />
-                    {value.val === "Card Payment" &&
+                { value.val ==="Card Payment" && 
+                <>
+                <StripeCheckout/>
+                <div className="pay-btn-box">
+                            <Space>
+                            <div>
+                                <br></br>
+                                <h4>All transactions are secured and encrypted <Icon.ShieldLock /></h4>
+                                <div className="box-logos">
+                                    <img className="card-logos" src={Visa}></img>
+                                    <img className="card-logos" src={MasterCard}></img>
+                                    <img className="card-logos" src={Amex}></img>
+                                </div>
+                            </div>
+                           </Space>
+                </div>
+                <div className="pay-btn-box">
+                            <Space>
+                            <Link to="/status">
+                                <Button className="pay-btn"
+                                    size="large"
+                                    style={{color:"green",}}
+                                    icon={<CheckCircleFilled/>}
+                                >
+                                   {"  Pay $500.00"} 
+                                </Button>
+                                </Link>
+                                </Space>
+                        </div>
+                </>
+                }
+                   {/* {value.val === "Card Payment" &&
                         <>
                             <TextInputField
                                 className="cc-number"
@@ -148,8 +196,7 @@ function DeliverInvoice() {
                                 </Link>
                                 </Space>
                         </div>
-
-                        </>}
+                        </>} */}
                     {value.val === "Bank Transfer" &&
                         <>
                             <h4>To pay via domestic ACH or wire, transfer funds to the following account:</h4>
