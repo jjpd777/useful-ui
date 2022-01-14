@@ -51,8 +51,8 @@ function DeliverInvoice() {
                     <div>
                         <h2>Created by Castillo INC</h2>
                         <h3><b>Invoice details for invoice #757</b></h3>
-                        <h3><Tag color="cyan">Billed to:</Tag> GUATESPICES INC</h3>
-                        <h3><Tag color="cyan">Billed on:</Tag> December 21 2021</h3>
+                        <h3><Tag color="gray">Billed to:</Tag> GUATESPICES INC</h3>
+                        <h3><Tag color="gray">Billed on:</Tag> December 21 2021</h3>
                         <h3><Tag color="yellow">Due on:</Tag> January 19 2022</h3>
                     </div>
                     <br></br>
@@ -104,6 +104,7 @@ function DeliverInvoice() {
                             {paymentOpts.map(x =>
                                 <Button className="payments-options-btn"
                                     type={x.val === value.val ? "primary" : ""}
+                                    style={{backgroundColor: x.val === value.val ? "darkblue" : ""}}
                                     onClick={() => setValue(x)}
                                 >
                                     {selectIcon(x.val)}{x.val}
@@ -200,14 +201,24 @@ function DeliverInvoice() {
                     {value.val === "Bank Transfer" &&
                         <>
                             <h4>To pay via domestic ACH or wire, transfer funds to the following account:</h4>
-                            <h3><b>Bank Name:</b></h3>
-                            <h4>WELLS FARGO BANK, N.A.</h4>
-                            <h3><b>Routing Number:</b></h3>
-                            <h4>121000248</h4>
-                            <h3><b>Account Number:</b></h3>
-                            <h4>40630143094065474</h4>
-                            <h3><b>Swift:</b></h3>
-                            <h4>WFBIUS6S</h4>
+                            <br></br>
+                            <Table.Row>
+                                <Table.TextCell><Tag color="blue">Bank Name:  </Tag> </Table.TextCell>
+                                <Table.TextCell> WELLS FARGO BANK, N.A. </Table.TextCell>
+                            </Table.Row>
+                            <Table.Row>
+                                <Table.TextCell><Tag color="blue">Account Number:</Tag> </Table.TextCell>
+                                <Table.TextCell> 40630143094065474</Table.TextCell>
+                            </Table.Row>
+                            <Table.Row>
+                                <Table.TextCell><Tag color="blue">Routing Number:  </Tag> </Table.TextCell>
+                                <Table.TextCell> 121000248 </Table.TextCell>
+                            </Table.Row>
+                            <Table.Row>
+                                <Table.TextCell><Tag color="blue">Swift Number:  </Tag> </Table.TextCell>
+                                <Table.TextCell> WFBIUS6S </Table.TextCell>
+                            </Table.Row>      
+
                         </>}
                     {value.val === "Check Payment" &&
                         <>
