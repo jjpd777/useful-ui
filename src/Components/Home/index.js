@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import CreateInvoice from "../CreateInvoice/index";
 import InvoicesTable from "../InvoicesTable/index";
 import Summary from "../Summary/index";
+import StripeResponse from "../StripeResponse/index";
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import { Layout, Menu, Breadcrumb } from 'antd';
@@ -66,6 +67,7 @@ function Home() {
                     <Route path="" element={<Summary/>} />
                     <Route path="transactions" element={<InvoicesTable />} />
                     <Route path="invoice" element={<CreateInvoice />} />
+                    <Route path="status" element={<StripeResponse />} />
                 </Routes>
             </div>
           </Content>

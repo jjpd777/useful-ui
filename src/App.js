@@ -4,6 +4,7 @@ import ItemsBasket from "./Components/ItemsBasket/index";
 import CreateInvoice from "./Components/CreateInvoice/index";
 import InvoicesTable from "./Components/InvoicesTable/index";
 import DeliverInvoice from "./Components/DeliverInvoice/index";
+import StripeResponse from "./Components/StripeResponse/index";
 import Home from "./Components/Home/index";
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import 'antd/dist/antd.css';
@@ -36,7 +37,8 @@ function App() {
           <Route path="/invoice" element={<CreateInvoice />} />
           <Route path="/transactions" element={<InvoicesTable />} />
         </Route>
-        <Route exact path="/delivered" element={<DeliverInvoice/>} />
+        <Route path="/delivered" element={<DeliverInvoice />} />
+        <Route exact path="/status" element={<StripeResponse/>} />
       </Routes>
     </div>
   );

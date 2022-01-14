@@ -126,3 +126,31 @@
 .summary-b{
   margin-right:10px;
 }
+
+.div-stripe-resp{
+
+  display: flex;
+  flex-direction: row;
+  width:100%;
+  background-color: aliceblue;
+  padding: 100px;
+
+}
+
+.stripe-resp-img{
+  margin: 0 auto;
+  max-width: 50%;
+}
+
+.successful-pymnt{
+  width:60%;
+  margin: 0 auto;
+  align-content: center;
+
+
+}
+
+.checked{
+
+  min-width: 30%;
+}

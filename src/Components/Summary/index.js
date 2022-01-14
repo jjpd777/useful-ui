@@ -1,6 +1,6 @@
 
 import React, {useState, useEffect} from 'react';
-import { Statistic, Row, Col, Button } from 'antd';
+import { Statistic, Row, Col, Button, Card } from 'antd';
 import {
     DesktopOutlined,
     PieChartOutlined,

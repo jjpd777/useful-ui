@@ -6,6 +6,8 @@ import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/i
 import { sampleDetails } from "./DataQuery";
 import { moneyFormatter } from "../../Utils/MoneyFormat";
 import * as Icon from 'react-bootstrap-icons';
+import {  Link } from 'react-router-dom';
+
 import {
     BankOutlined, CreditCardOutlined, WalletOutlined, LockOutlined, CheckCircleFilled
 } from '@ant-design/icons';
@@ -135,6 +137,7 @@ function DeliverInvoice() {
                             </div>
                             <div className="pay-btn-box">
                             <Space>
+                            <Link to="/status">
                                 <Button className="pay-btn"
                                     size="large"
                                     style={{color:"green",}}
@@ -142,6 +145,7 @@ function DeliverInvoice() {
                                 >
                                    {"  Pay $500.00"} 
                                 </Button>
+                                </Link>
                                 </Space>
                         </div>
 
