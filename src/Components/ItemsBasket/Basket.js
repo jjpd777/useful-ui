@@ -1,34 +1,35 @@
 
 import React, { useState, useEffect } from "react";
-import { Table, TextInput, Button} from 'evergreen-ui';
+import { Table, TextInput, Button } from 'evergreen-ui';
 import { moneyFormatter } from "../../Utils/MoneyFormat";
-import { CloseCircleOutlined, PlusOutlined } from  '@ant-design/icons';
+import { CloseCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import CurrencyInput from 'react-currency-input-field';
 
 
 
 function Basket({ items, setItems }) {
-    const initialState =()=> { 
-        return{
-        uid: Date.now(),
-        itemName: "",
-        itemQuantity: 0,
-        itemUnitPrice: 0,
-        itemSubTotal: 0,
-    }};
+    const initialState = () => {
+        return {
+            uid: Date.now(),
+            itemName: "",
+            itemQuantity: 0,
+            itemUnitPrice: 0,
+            itemSubTotal: 0,
+        }
+    };
 
 
     useEffect(() => {
         if (items.length < 1) setItems([initialState()]);
     }, [items]);
 
-    const insertItem = ()=>{
-        setItems(prevState => [...prevState, initialState() ]);
+    const insertItem = () => {
+        setItems(prevState => [...prevState, initialState()]);
     };
 
-    const deleteItem = (item)=>{
+    const deleteItem = (item) => {
         setItems(prevState => (
-            prevState.filter(prev=>
+            prevState.filter(prev =>
                 prev.uid !== item.uid)
         ));
     };
@@ -59,47 +60,47 @@ function Basket({ items, setItems }) {
     };
 
     console.log(items);
-    
+
 
 
     return (
         <Table>
             <Table.Head>
-                {/* <Table.SearchHeaderCell /> */}
-                <Table.TextHeaderCell>Name</Table.TextHeaderCell>
-                <Table.TextHeaderCell>Quantity</Table.TextHeaderCell>
-                <Table.TextHeaderCell>Price</Table.TextHeaderCell>
+                <Table.TextHeaderCell className="basket-name-col">Product Description</Table.TextHeaderCell>
+                <Table.TextHeaderCell className="basket-2-col">Quantity</Table.TextHeaderCell>
+                <Table.TextHeaderCell className="basket-2-col"> Price</Table.TextHeaderCell>
                 <Table.TextHeaderCell>Sub-total</Table.TextHeaderCell>
-                <Table.TextHeaderCell></Table.TextHeaderCell>
+                <Table.TextHeaderCell className="basket-2-input"></Table.TextHeaderCell>
             </Table.Head>
             <Table.Body >
                 {items.map((x) => (
                     <Table.Row key={x.uid} >
-                        <Table.TextCell>
-                            <TextInput width={200}  onChange={e => updateNameInput(x, e.target.value)} value={x.itemName} />
+                        <Table.TextCell className="basket-name-col">
+                            <TextInput className="basket-name-input" onChange={e => updateNameInput(x, e.target.value)} value={x.itemName} />
                         </Table.TextCell>
                         <Table.TextCell >
-                            <TextInput type="number" width={100} onChange={e => updateQuantityInput(x, e.target.value)} value={x.itemQuantity} />
+                            <TextInput className="basket-2-input" type="number" onChange={e => updateQuantityInput(x, e.target.value)} value={x.itemQuantity} />
                         </Table.TextCell>
                         <Table.TextCell isNumber>
-                            <TextInput type="number" width={100}  onChange={e => updatePriceInput(x, e.target.value)} value={x.itemUnitPrice} />
+                            <TextInput className="basket-3-input" type="number" onChange={e => updatePriceInput(x, e.target.value)} value={x.itemUnitPrice} />
                         </Table.TextCell>
                         <Table.TextCell isNumber>
                             {computeSubTotal(x)}
                         </Table.TextCell>
-                        <Table.TextCell isNumber>
-                            <CloseCircleOutlined style={{color:"red"}} onClick={()=>{ deleteItem(x)}} />
+                        <Table.TextCell className="basket-2-input" isNumber>
+                            <CloseCircleOutlined style={{ color: "red" }} onClick={() => { deleteItem(x) }} />
                         </Table.TextCell>
                     </Table.Row>
                 ))}
                 <Table.Row>
-                    <Table.TextCell>
-                        <Button color={"green"} onClick={()=>{insertItem()}} > <PlusOutlined/>Add row</Button>
+                    <Table.TextCell className="bottom-add-col">
+                        <Button className="add-btn" color={"green"} onClick={() => { insertItem() }} > <PlusOutlined />Nuevo Item</Button>
                     </Table.TextCell>
                     <Table.TextCell></Table.TextCell>
-                    <Table.TextCell></Table.TextCell>
-                    <Table.TextCell></Table.TextCell>
-                    <Table.TextCell></Table.TextCell>
+                    <Table.TextCell className="basket-2-input"></Table.TextCell>
+                    <Table.TextCell className="basket-3-input" ><b>Total</b></Table.TextCell>
+                    <Table.TextCell isNumber> {moneyFormatter.format(456700)}</Table.TextCell>
+                    <Table.TextCell className="basket-2-input"> </Table.TextCell>
                 </Table.Row>
             </Table.Body>
         </Table>

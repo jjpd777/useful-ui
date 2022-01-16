@@ -45,6 +45,8 @@
 .fields-description{
   display: flex;
   flex-direction: row;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .delivered-invoice-container{
@@ -155,4 +157,67 @@
 .checked{
 
   min-width: 30%;
+}
+
+.invoice-box{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.invoice-details{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 0 auto;
+}
+
+.invoice-pay{
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+
+}
+
+.invoice-detail-cust{
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  padding-inline-end: 50px;
+}
+
+.basket-2-col{
+  width: 10%;
+
+}
+
+.standard-action-btn{
+  margin-left: 10px;
+  max-width: 150px;
+}
+
+.basket-name-col{
+  min-width: 50%;
+
+}
+
+.basket-name-input{
+  min-width: 90%;
+}
+
+.basket-2-input{
+  max-width: 70px;
+}
+
+.basket-3-input{
+  max-width: 90px;
+}
+
+.bottom-add-col{
+  min-width: 50%;
+  justify-content: left;
+}
+
+.add-btn{
+  justify-content: left;
 }
