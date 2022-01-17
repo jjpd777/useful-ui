@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.397c323e.css",
+    "main.js": "/static/js/main.05fef724.js",
+    "static/js/787.103d342d.chunk.js": "/static/js/787.103d342d.chunk.js",
+    "static/media/happy-revenue-logo.png": "/static/media/happy-revenue-logo.defc1329f65ca55fb624.png",
+    "static/media/saldada-color.png": "/static/media/saldada-color.1143d6a90a20a3e81697.png",
+    "static/media/saldada-logo.png": "/static/media/saldada-logo.4a7321ca6c322c2feb9b.png",
+    "static/media/amex-logo.png": "/static/media/amex-logo.8e1fb07d5797f973bc2a.png",
+    "static/media/visa-logo.png": "/static/media/visa-logo.a05453b4b203ed08557d.png",
+    "index.html": "/index.html",
+    "main.397c323e.css.map": "/static/css/main.397c323e.css.map",
+    "main.05fef724.js.map": "/static/js/main.05fef724.js.map",
+    "787.103d342d.chunk.js.map": "/static/js/787.103d342d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.397c323e.css",
+    "static/js/main.05fef724.js"
+  ]
+}

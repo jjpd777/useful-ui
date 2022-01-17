@@ -18,6 +18,9 @@ const CheckboxGroup = Checkbox.Group;
 const plainOptions = ['Tarjeta', 'ACH', 'Cheque'];
 const defaultCheckedList = ['Apple', 'Orange'];
 
+const DEV_VARIABLE = false;
+const DEV_BACKEND = DEV_VARIABLE ? "www.localhost:3000" : "saldada.awsbackend.com/"
+
 
 
 
@@ -40,7 +43,14 @@ function CreateInvoice() {
       setCheckAll(e.target.checked);
     };
   
+    const callBackendDatabase = async()=>{
+        const data = await fetch("/invoices/record",{
+            type:"POST",
+            header:{
 
+            }
+        })
+    }
     return (
         <div className="invoice-box">
             <br></br>
